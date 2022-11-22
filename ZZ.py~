@@ -1,0 +1,8 @@
+import cppyy
+
+cppyy.include("/usr/local/include/NTL/ZZ.h")
+cppyy.load_library("/usr/local/lib/libntl.so")
+
+class ZZ:
+    def ZZ(self, a):
+        

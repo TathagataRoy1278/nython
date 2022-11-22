@@ -1,0 +1,15 @@
+import cppyy
+from array import array
+import random
+
+cppyy.include("./gf2mat.h")
+cppyy.load_library("/usr/local/lib/libntl.so")
+cppyy.load_library("./gf2mat.so")
+
+
+ar = array('i', [])
+obj = cppyy.gbl.GF2Mat()
+for i in range(10000):
+    ar.extend([int(random.random()*2)]*10000)
+obj.fromMatrix(ar, 10000, 10000)
+obj.calcinv()

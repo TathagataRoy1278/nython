@@ -1,0 +1,5 @@
+import numpy as np
+
+class Binmat:
+    def __init__(self, arr, type):
+        arr = (np.array(arr).flatten())
