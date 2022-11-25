@@ -31,9 +31,4 @@ cppyy.gbl.to_reduced_row_echelon_form(rep)#calls RREF on the NTL object and modi
 end = time.time()
 print(f"%ds to calculate rref"%(end-start))
 
-obj.printMatrix(rep)
-l = rep[2][3]._ref_GF2__ptr
-l = cppyy.bind_object(l, cppyy.gbl.NTL.GF2)
-l._GF2__rep
-
 #print(cppyy.gbl.check_rref(rep))
