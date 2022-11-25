@@ -1,3 +1,0 @@
-import cppyy as cp
-
-cp.include("NTL/GF2.h")

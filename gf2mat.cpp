@@ -82,3 +82,12 @@ NTL::Mat<NTL::GF2> GF2Mat::getinvrep()
   return invrep;//debug function
 }
 
+void GF2Mat::test()
+{
+  int i = 2;
+  int j = 8;
+  int b_list[3];
+  b_list[2] = 12;
+  __rep__[2][8] = NTL::GF2(b_list[2]);
+  
+}

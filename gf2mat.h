@@ -19,6 +19,6 @@ public:
   void printInv();
   int calcinv();
   NTL::Mat<NTL::GF2> getinvrep();
-  
+  void test();
 };
 

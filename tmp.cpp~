@@ -1,6 +1,0 @@
-#include "gf2mat.h"
-
-int main()
-{
-  int[4] = {1, 0, 1, 1};
-}
