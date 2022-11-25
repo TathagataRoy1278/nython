@@ -1,0 +1,35 @@
+How to use -
+
+
+#very important
+1. Any C++ method that needs to be used and takes func(int *a) as an argument, it must be passed like:
+
+l = [...]#this is a python array that needs to be passed
+arg = None#this is the variable which will be passed into the C++ array, l must be preprocessed like this
+arg = array('i', l)
+
+func(arg)
+
+How to use CPP files.
+
+Lets say we have files, file.h and file.cpp, it must be compiled as
+
+g++ -shared file.h file.cpp -lntl -o file.so
+#to note - -lntl is used only if NTL is used, the important option here is -shared
+
+These files are included in the python file as -
+cppyy.include("file.h")
+cppyy.load_library("file.so")
+
+file.h must be included in all cases where the definitions are directly called in python. For example, if the class GF2Mat is called as follows -
+
+cppyy.gbl.GF2Mat() then the header file where GF2Mat is defined must be included including the compiled shared library as explained above. But, this is
+needed only if it is directly called.
+
+--------------------
+
+After all cppyy.include and cppyy.load_library statements, the imported, classes/methods will be stored in cppyy.gbl variable. For example, GF2Mat which is defined in gf2mat.h and included with - 
+cppyy.include("gf2mat.h")
+cppyy.load_library("gf2mat.so")
+
+will be called as cppyy.gbl.GF2Mat()
