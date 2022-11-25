@@ -2,7 +2,8 @@ import cppyy
 from array import array
 cppyy.include("./gf2mat.h")
 cppyy.load_library("/usr/local/lib/libntl.so")
+cppyy.include("/usr/local/include/NTL/GF2.h")
 cppyy.load_library("./gf2mat.so")
-obj = cppyy.gbl.GF2Mat()
-obj.fromMatrix(array('i', [1, 2, 1, 1]),2, 2)
-obj.calcinv()
+obj = cppyy.gbl.NTL.GF2(45)
+
+print(obj._GF2__rep)
